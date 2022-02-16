@@ -1,0 +1,25 @@
+<header>
+    <div class="container">
+
+        <div id='divLogo'>
+            <img id="logo" src={{ asset("Images/emoji.png") }} alt="">
+        </div>
+
+        <div id='divNav'>
+            <nav>
+                <ul>
+                    <li><a href={{path ('accueil')}}>Accueil</a></li>
+                    <li><a href="">Boutique</a></li>
+                    <li><a href="">Contacts</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</header>
+
+<script src={{asset('JS/test.js')}}></script>
+
+{# Si nous voulions appeler un script JS pour le menu burger par exemple, on procédreait ainsi
+ #}
+{# <script src={{asset('JS/burger.js')}}></script> #}

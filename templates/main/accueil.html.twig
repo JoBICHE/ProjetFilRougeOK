@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} accueil{% endblock %}
+
+
+
+{% block body %}
+<div id="mainDiv">
+<p>Bienvenur sur la page d'accueil</p></div>
+{# Si ROLE_ADMIN : #}
+{% if is_granted('ROLE_ADMIN') %}
+{# <a style="display : {{ echoAdmin }}" href={{path ('admin')}}>Admin</a> #}
+<a href={{path ('admin')}}>Admin</a>
+{% endif %}
+{% if is_granted('ROLE_CLIENT') %}
+<a href={{path ('boutique_privee')}}>Boutique privée</a>
+{% endif %}
+
+{% endblock %}

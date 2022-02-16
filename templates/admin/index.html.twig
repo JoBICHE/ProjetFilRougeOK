@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<p>Que voulez-vous administrer ?</p>
+<a href={{ path('admin_produit_afficher')}}>Produits</a>
+<br>
+<a href={{ path('admin_category_afficher')}}>Catégories</a>
+<br>
+
+<a href={{ path('admin_contact_afficher')}}>Contacts</a>
+
+{% endblock %}

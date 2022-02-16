@@ -1,0 +1,5 @@
+{% for category in categories %}
+Catégorie : {{ category.title }}  <a href={{ path('admin_category_editer', {'id' : category.id} ) }}>Modifier</a><a href={{ path('admin_category_supprimer', {'id' : category.id} ) }}>Supprimer</a>
+<br>
+
+{% endfor %}

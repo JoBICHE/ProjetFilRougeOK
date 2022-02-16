@@ -1,0 +1,63 @@
+* {
+    /* background-color: aqua; */
+}
+
+#logo {
+   
+    width: 100px;
+}
+
+header {
+    position: relative;
+}
+
+
+#mainDiv {
+    margin-top: 200px;
+}
+
+/* Les variables CSS 
+ */
+
+/*  Les variables seront acessibles dans tout le CSS grâce à :root
+ */
+ 
+/*  :root {
+    
+    --textColor: white;
+    --bgColor: black;
+} 
+
+.container {
+    display:flex;
+    flex-direction: row;
+}
+
+#divLogo, #divNav {
+    width: 50%;
+    background-color: var(--bgColor);
+}
+
+a {
+   color: var(--textColor);
+}
+
+p {
+    color: var(--textColor);
+
+}
+
+div {
+    background-color: var(--bgColor);
+}
+
+@media all and (max-width: 490px) {
+    .container {
+        flex-direction: column;
+    }
+
+    #divLogo, #divNav {
+        width: 100%;
+    }
+
+} */
