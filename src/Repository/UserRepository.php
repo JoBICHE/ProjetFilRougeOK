@@ -39,19 +39,80 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByMail($value)
     {
         return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
+            ->andWhere('u.email = :val')
             ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
+
+
+
+
+    
+
+    public function findByRole(string $role)
+    {
+        $role = mb_strtoupper($role);
+        return $this->createQueryBuilder('u')
+            ->andWhere('JSON_CONTAINS(u.roles, :role) = 1')
+            ->setParameter('role', '"ROLE_' . $role . '"')
+            ->orderBy('u.email', 'ASC')
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
+    public function findByCity(string $city)
+    {
+       
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.city = :city')
+            ->setParameter('city', $city)
             ->orderBy('u.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+    public function findByRoleAndCity(string $role, string $city)
+    {
+        $role = mb_strtoupper($role);
+        return $this->createQueryBuilder('u')
+            ->andWhere('JSON_CONTAINS(u.roles, :role) = 1')
+            ->andWhere('u.city = :city')
+            ->setParameter('role', '"ROLE_' . $role . '"')
+            ->setParameter('city', $city)
+            ->orderBy('u.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     /*
     public function findOneBySomeField($value): ?User

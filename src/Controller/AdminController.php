@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Contact;
 use App\Entity\Product;
 use App\Entity\Category;
 use App\Form\ContactType;
 use App\Form\ProductType;
 use App\Form\CategoryType;
+use App\Repository\UserRepository;
 use App\Repository\ContactRepository;
 use App\Repository\ProductRepository;
 use App\Repository\CategoryRepository;
@@ -332,5 +334,96 @@ public function supprimer_produit(Product $product, EntityManagerInterface $mana
     return $this->redirectToRoute('accueil');
 
 }
+
+#[Route('/admin/admins', name: 'admin_admins_afficher')]
+public function afficher_admins(UserRepository $userRepository): Response
+{
+
+    $admins = $userRepository->findByMail("admin@admin.admin"); 
+   $rolesAdmin = $userRepository->findByRole('admin');
+   
+
+    return $this->render('admin/afficherAdmins.html.twig', [
+         'admins' => $admins,
+        'rolesAdmins' => $rolesAdmin
+     ]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#[Route('/admin/city_users', name: 'admin_city_users_afficher')]
+public function afficher_city_users(UserRepository $userRepository): Response
+{
+
+   /* $admins = $userRepository->findByMail("admin@admin.admin"); */
+   $cityUsers = $userRepository->findByCity('Lille');
+   
+
+    return $this->render('admin/afficherUsersParVille.html.twig', [
+        /* 'admins' => $admins, */
+        'cityUsers' => $cityUsers
+    ]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#[Route('/admin/city_role_users', name: 'admin_city_role_users_afficher')]
+public function afficher_city_roles_users(UserRepository $userRepository): Response
+{
+
+   /* $admins = $userRepository->findByMail("admin@admin.admin"); */
+   $cityRoleUsers = $userRepository->findByRoleAndCity('admin', 'Lille');
+   
+
+    return $this->render('admin/afficherUsersParVilleEtRole.html.twig', [
+        /* 'admins' => $admins, */
+        'cityRoleUsers' => $cityRoleUsers
+    ]);
+}
+
+#[Route('/admin/products', name: 'admin_products_price')]
+public function afficher_produuits_prix(ProductRepository $prodRepository): Response
+{
+
+    $prices = $prodRepository->findByPrice(2000); 
+    $catProd = $prodRepository->findByCat(3);
+   
+
+    return $this->render('admin/afficherParPrix.html.twig', [
+         'prices' => $prices,
+        'catProd' => $catProd
+     ]);
+}
+
+    
+    
+
 
 }

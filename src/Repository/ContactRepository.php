@@ -22,19 +22,19 @@ class ContactRepository extends ServiceEntityRepository
     // /**
     //  * @return Contact[] Returns an array of Contact objects
     //  */
-    /*
+    
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+            ->andWhere('c.role = :val')
             ->setParameter('val', $value)
             ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->setMaxResults(1)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+   
 
     /*
     public function findOneBySomeField($value): ?Contact

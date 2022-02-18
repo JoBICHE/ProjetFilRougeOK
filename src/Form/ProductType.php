@@ -20,7 +20,7 @@ class ProductType extends AbstractType
             ->add('created_at')
             ->add('updated_at')
             ->add('stock')
-            /* ->add('category') */
+            ->add('category')
             ->add('ajouter', SubmitType::class)
         ;
     }
